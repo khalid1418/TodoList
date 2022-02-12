@@ -4,6 +4,8 @@ buildscript {
         nav_version = '2.3.5'
         room_version = '2.3.0'
         coroutines_version = '1.4.2'
+        lifecycle_version = '2.3.1'
+
 
 
     }
