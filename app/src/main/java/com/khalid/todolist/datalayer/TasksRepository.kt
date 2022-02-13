@@ -11,7 +11,6 @@ class TasksRepository(private val taskDao: TasksDao?,
                       private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO):Repository {
     override suspend fun addTask(task: DataModel) {
         taskDao?.insert(task)
-        Log.e("TAG", "addTask: ${task.id} & ${task.title}", )
     }
 
     override suspend fun getAllTasks():Flow<List<DataModel>?>?  {
@@ -19,4 +18,6 @@ class TasksRepository(private val taskDao: TasksDao?,
     }
 
 
-}
+    }
+
+

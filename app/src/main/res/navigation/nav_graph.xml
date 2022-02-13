@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_tasksFragment_to_addTasksFragment"
             app:destination="@id/addTasksFragment" />
+        <action
+            android:id="@+id/action_tasksFragment_to_detailTaskFragment"
+            app:destination="@id/detailTaskFragment" />
     </fragment>
     <fragment
         android:id="@+id/addTasksFragment"
@@ -22,5 +25,23 @@
         <action
             android:id="@+id/action_addTasksFragment_to_tasksFragment"
             app:destination="@id/tasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailTaskFragment"
+        android:name="com.khalid.todolist.detailtask.DetailTaskFragment"
+        android:label="fragment_detail_task"
+        tools:layout="@layout/fragment_detail_task" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="descriptio"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detailTaskFragment_to_addTasksFragment"
+            app:destination="@id/addTasksFragment" />
     </fragment>
 </navigation>

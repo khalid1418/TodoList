@@ -76,7 +76,6 @@ class AddTasksFragment : Fragment() {
             datemilisec = it
             datePick = convertMillisecondsToReadableDate(it, "YYY, MM d ")
             binding?.date?.setText(datePick)
-//            ShareView.repeatdate(datemilisec)
 
 
         }

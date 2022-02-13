@@ -5,43 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/title"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="39dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/title_task"
-        android:textSize="25dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/checkBox"
+            android:text="@string/title_task"
+            android:paddingTop="1dp"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="51dp"
-        android:layout_marginStart="28dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/checkBox"
+        android:layout_below="@id/title"
+        android:paddingTop="1dp"
         android:text="@string/description"
-        android:textSize="18dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
 
     <TextView
         android:id="@+id/date"
-        android:layout_width="88dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="28dp"
-        android:text="Date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/description"
+        android:layout_toRightOf="@id/checkBox"
+        android:text="Date"/>
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="30dp"
-        android:layout_height="36dp"
-        android:layout_marginTop="28dp"
-        android:text="CheckBox"
-        app:layout_constraintEnd_toStartOf="@+id/description"
-        app:layout_constraintTop_toTopOf="@+id/title" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="16dp"
+        android:paddingTop="1dp" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -38,6 +38,8 @@ class TasksFragment : Fragment() {
             findNavController().navigate(action)
         }
         val adapter = TasksAdapter{
+            val action = TasksFragmentDirections.actionTasksFragmentToDetailTaskFragment(it.title , it.description ,  it.datetask)
+            findNavController().navigate(action)
         }
         binding?.recyclerView?.adapter = adapter
         viewModel.allTasksLiveData.observe(viewLifecycleOwner , {
