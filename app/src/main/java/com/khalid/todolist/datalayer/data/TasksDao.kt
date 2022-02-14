@@ -1,10 +1,7 @@
 package com.khalid.todolist.datalayer.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -15,5 +12,6 @@ interface TasksDao {
     @Query("SELECT * FROM datamodel")
     fun getAllTask(): Flow<List<DataModel>?>?
 
-
+@Update
+suspend fun update(taskLocalDataBase: DataModel)
 }

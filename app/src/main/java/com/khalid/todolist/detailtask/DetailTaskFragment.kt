@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.khalid.todolist.R
 import com.khalid.todolist.TodoListApplication
@@ -19,14 +20,14 @@ import com.khalid.todolist.utils.ViewModelFactory
 class DetailTaskFragment : Fragment() {
     private var _binding: FragmentDetailTaskBinding? = null
     private val binding get() = _binding
-    private val navArgument:DetailTaskFragmentArgs by navArgs()
+    private val navArgument: DetailTaskFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding= FragmentDetailTaskBinding.inflate(inflater,container,false)
+        _binding = FragmentDetailTaskBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
@@ -34,10 +35,21 @@ class DetailTaskFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         alltask()
+        binding?.editTaskFab?.setOnClickListener {
+            val action = DetailTaskFragmentDirections.actionDetailTaskFragmentToEditTasksFragment(
+                navArgument.id,
+                navArgument.title,
+                navArgument.descriptio,
+                navArgument.date
+            )
+            findNavController().navigate(action)
+        }
     }
-    fun alltask(){
+
+    fun alltask() {
         binding?.taskDetailTitleText?.text = navArgument.title
         binding?.taskDetailDescriptionText?.text = navArgument.descriptio
         binding?.date?.text = navArgument.date
     }
+
 }

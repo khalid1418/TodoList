@@ -17,7 +17,7 @@ import com.khalid.todolist.utils.ViewModelFactory
 class TasksFragment : Fragment() {
     private var _binding: FragmentTasksBinding? = null
     private val binding get() = _binding
-    private val viewModel:TasksViewModel by activityViewModels{
+    private val viewModel: TasksViewModel by activityViewModels {
         ViewModelFactory((activity?.application as TodoListApplication).repository)
     }
 
@@ -27,22 +27,27 @@ class TasksFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding= FragmentTasksBinding.inflate(inflater,container,false)
+        _binding = FragmentTasksBinding.inflate(inflater, container, false)
         return binding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding?.addTaskFab?.setOnClickListener {
-            val action =TasksFragmentDirections.actionTasksFragmentToAddTasksFragment()
+            val action = TasksFragmentDirections.actionTasksFragmentToAddTasksFragment()
             findNavController().navigate(action)
         }
-        val adapter = TasksAdapter{
-            val action = TasksFragmentDirections.actionTasksFragmentToDetailTaskFragment(it.title , it.description ,  it.datetask)
+        val adapter = TasksAdapter {
+            val action = TasksFragmentDirections.actionTasksFragmentToDetailTaskFragment(
+                it.title,
+                it.description,
+                it.datetask,
+                it.id
+            )
             findNavController().navigate(action)
         }
         binding?.recyclerView?.adapter = adapter
-        viewModel.allTasksLiveData.observe(viewLifecycleOwner , {
+        viewModel.allTasksLiveData.observe(viewLifecycleOwner, {
             it.let {
                 adapter.submitList(it)
             }

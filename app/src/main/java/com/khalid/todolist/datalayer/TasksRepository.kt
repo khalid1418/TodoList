@@ -17,7 +17,11 @@ class TasksRepository(private val taskDao: TasksDao?,
         return taskDao?.getAllTask()
     }
 
-
+    override suspend fun editTask(task: DataModel) {
+        taskDao?.update(task)
     }
+
+
+}
 
 

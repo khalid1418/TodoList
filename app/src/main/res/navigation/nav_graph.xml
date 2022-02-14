@@ -41,7 +41,31 @@
             android:name="date"
             app:argType="string" />
         <action
-            android:id="@+id/action_detailTaskFragment_to_addTasksFragment"
-            app:destination="@id/addTasksFragment" />
+            android:id="@+id/action_detailTaskFragment_to_editTasksFragment"
+            app:destination="@id/editTasksFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTasksFragment"
+        android:name="com.khalid.todolist.edittasks.EditTasksFragment"
+        android:label="fragment_edit_tasks"
+        tools:layout="@layout/fragment_edit_tasks" >
+        <action
+            android:id="@+id/action_editTasksFragment_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
     </fragment>
 </navigation>

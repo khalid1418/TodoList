@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.Flow
 interface Repository {
     suspend fun addTask(task:DataModel)
     suspend fun getAllTasks():Flow<List<DataModel>?>?
-
+    suspend fun editTask(task: DataModel)
 }
