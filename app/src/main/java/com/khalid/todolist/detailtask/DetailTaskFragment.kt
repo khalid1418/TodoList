@@ -13,6 +13,7 @@ import com.khalid.todolist.R
 import com.khalid.todolist.TodoListApplication
 import com.khalid.todolist.databinding.FragmentDetailTaskBinding
 import com.khalid.todolist.databinding.FragmentTasksBinding
+import com.khalid.todolist.datalayer.data.DataModel
 import com.khalid.todolist.mainpage.TasksViewModel
 import com.khalid.todolist.utils.ViewModelFactory
 
@@ -21,6 +22,9 @@ class DetailTaskFragment : Fragment() {
     private var _binding: FragmentDetailTaskBinding? = null
     private val binding get() = _binding
     private val navArgument: DetailTaskFragmentArgs by navArgs()
+    private val viewModel:DetailViewModel by activityViewModels{
+        ViewModelFactory((activity?.application as TodoListApplication).repository)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -50,6 +54,14 @@ class DetailTaskFragment : Fragment() {
         binding?.taskDetailTitleText?.text = navArgument.title
         binding?.taskDetailDescriptionText?.text = navArgument.descriptio
         binding?.date?.text = navArgument.date
+        binding?.complete?.setOnClickListener {
+            complete()
+        }
+    }
+    fun complete(){
+        viewModel.completeTasks(DataModel(navArgument.id , navArgument.title , navArgument.descriptio , navArgument.date))
+        findNavController().navigateUp()
+
     }
 
 }

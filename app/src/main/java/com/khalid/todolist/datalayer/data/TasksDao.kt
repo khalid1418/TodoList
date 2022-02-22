@@ -14,4 +14,7 @@ interface TasksDao {
 
 @Update
 suspend fun update(taskLocalDataBase: DataModel)
+
+@Delete
+suspend fun delete(taskLocalDataBase: DataModel)
 }

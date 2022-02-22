@@ -17,6 +17,7 @@ class EditTasksViewModel(val repository: TasksRepository):ViewModel() {
             repository.editTask(dataModel)
         }
     }
+
     private fun getEditTaskEntry(
         title: String,
         description: String,

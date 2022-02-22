@@ -2,15 +2,14 @@ package com.khalid.todolist.mainpage
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.khalid.todolist.R
 import com.khalid.todolist.TodoListApplication
 import com.khalid.todolist.databinding.FragmentTasksBinding
+import com.khalid.todolist.datalayer.data.DataModel
 import com.khalid.todolist.utils.ViewModelFactory
 
 
@@ -20,6 +19,8 @@ class TasksFragment : Fragment() {
     private val viewModel: TasksViewModel by activityViewModels {
         ViewModelFactory((activity?.application as TodoListApplication).repository)
     }
+
+
 
 
     override fun onCreateView(
@@ -53,6 +54,7 @@ class TasksFragment : Fragment() {
             }
         })
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

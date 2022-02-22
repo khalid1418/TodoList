@@ -21,6 +21,10 @@ class TasksRepository(private val taskDao: TasksDao?,
         taskDao?.update(task)
     }
 
+    override suspend fun completeTasks(task: DataModel) {
+        taskDao?.delete(task)
+    }
+
 
 }
 

@@ -34,17 +34,19 @@ ListAdapter<DataModel, TasksAdapter.TasksViewHolder>(DiffCallback) {
             }
 
         }
+
     }
 
     class TasksViewHolder(private val binding: MyListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(dataModel: DataModel) {
             binding.apply {
+
                 title.text = dataModel.title
                 description.text = dataModel.description
                 date.text = dataModel.datetask
 
-                Log.e("TAG", "bind:${dataModel.title} ")
+
 
             }
 
@@ -70,4 +72,5 @@ ListAdapter<DataModel, TasksAdapter.TasksViewHolder>(DiffCallback) {
         }
 
     }
+
 }

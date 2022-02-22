@@ -26,6 +26,10 @@ class ViewModelFactory(val repository: TasksRepository) : ViewModelProvider.Fact
                 @Suppress("UNCHECKED_CAST")
                 return EditTasksViewModel(repository) as T
             }
+            modelClass.isAssignableFrom(DetailViewModel::class.java)->{
+                @Suppress("UNCHECKED_CAST")
+                return DetailViewModel(repository) as T
+            }
 
         }
         throw IllegalArgumentException("Unknown ViewModel class")
