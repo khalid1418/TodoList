@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/tasksFragment">
+
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.khalid.todolist.mainpage.TasksFragment"
+        android:label="Tasks"
+        tools:layout="@layout/fragment_tasks" >
+        <action
+            android:id="@+id/action_tasksFragment_to_addTasksFragment"
+            app:destination="@id/addTasksFragment" />
+        <action
+            android:id="@+id/action_tasksFragment_to_detailTaskFragment"
+            app:destination="@id/detailTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTasksFragment"
+        android:name="com.khalid.todolist.addtasks.AddTasksFragment"
+        android:label="AddTasks"
+        tools:layout="@layout/fragment_add_tasks" >
+        <action
+            android:id="@+id/action_addTasksFragment_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailTaskFragment"
+        android:name="com.khalid.todolist.detailtask.DetailTaskFragment"
+        android:label="DetailTask"
+        tools:layout="@layout/fragment_detail_task" >
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="descriptio"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detailTaskFragment_to_editTasksFragment"
+            app:destination="@id/editTasksFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailTaskFragment_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTasksFragment"
+        android:name="com.khalid.todolist.edittasks.EditTasksFragment"
+        android:label="EditTask"
+        tools:layout="@layout/fragment_edit_tasks" >
+        <action
+            android:id="@+id/action_editTasksFragment_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="date"
+            app:argType="string" />
+    </fragment>
+</navigation>
