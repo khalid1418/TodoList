@@ -12,8 +12,8 @@ import com.khalid.todolist.databinding.FragmentTasksBinding
 import com.khalid.todolist.databinding.MyListBinding
 import com.khalid.todolist.datalayer.data.DataModel
 
-class TasksAdapter(private val onItemClicked:(DataModel) -> Unit) :
-ListAdapter<DataModel, TasksAdapter.TasksViewHolder>(DiffCallback) {
+class TasksAdapter(private val onItemClicked: (DataModel) -> Unit) :
+    ListAdapter<DataModel, TasksAdapter.TasksViewHolder>(DiffCallback) {
 
 
     companion object {
@@ -47,7 +47,6 @@ ListAdapter<DataModel, TasksAdapter.TasksViewHolder>(DiffCallback) {
                 date.text = dataModel.datetask
 
 
-
             }
 
         }
@@ -66,8 +65,8 @@ ListAdapter<DataModel, TasksAdapter.TasksViewHolder>(DiffCallback) {
     override fun onBindViewHolder(holder: TasksViewHolder, position: Int) {
         val current = getItem(position)
         holder.bind(current)
-        Log.e("TAG", "onBindViewHolder: ${current.title}", )
-        holder.itemView.setOnClickListener{
+        Log.e("TAG", "onBindViewHolder: ${current.title}")
+        holder.itemView.setOnClickListener {
             onItemClicked(current)
         }
 
